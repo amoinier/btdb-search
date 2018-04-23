@@ -18,9 +18,17 @@ exports.search = function (searchStr) {
             var name = $(this).find('.item-title a').attr('title');
             var size = $(this).find('.item-meta-info-value').eq(0).text();
             var popularity = $(this).find('.item-meta-info-value').eq(3).text();
+			var list_files = [];
 
+			var files = $(this).find('.file')
+			files.each((i, file) => {
+				list_files.push({
+					type: $(file).find('.file-icon').find('i').attr('class').replace('fa', '').replace('fa-', '').replace('-o', '').trim(),
+					name: $(file).find('.file-name').text().trim(),
+				});
+			})
 
-            result.push({magnet, name, size, popularity});
+            result.push({magnet, name, size, popularity, list_files});
             if (!--count)
                 defr.resolve(result);
         });
