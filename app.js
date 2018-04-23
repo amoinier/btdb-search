@@ -9,7 +9,7 @@ const cheerio = require('cheerio');
 exports.search = function (searchStr) {
     const defr = thenfunc.defer();
 	var result = [];
-    const option = {url: 'https://btdb.to/q/' + encodeURIComponent(searchStr) + '/'};
+    const option = {url: 'https://btdb.to/q/' + encodeURIComponent(searchStr) + '/?sort=popular'};
     request(option, function (err, resp, html) {
         var $ = cheerio.load(html);
         var elems = $('li[class=search-ret-item]'), count = elems.length;
