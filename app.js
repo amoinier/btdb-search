@@ -17,8 +17,7 @@ exports.search = (searchStr, params) => {
 	}
 
 	async.times(((params.page_max - params.page_min) + 1), (index, times_cb) => {
-		const option = {url: website_url + encodeURIComponent(searchStr) + '/' + 
-(params.page_min + index) + '?sort=' + params.sorts}
+		const option = {url: website_url + encodeURIComponent(searchStr) + '/' + (params.page_min + index) + '?sort=' + params.sorts}
 		if (params.timeout) {
 			option.timeout = params.timeout
 		}
