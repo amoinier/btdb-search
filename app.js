@@ -30,6 +30,10 @@ exports.search = (searchStr, params) => {
 			let elems = $('li[class=search-ret-item]')
 			let count = elems.length
 
+			if (count == 0) {
+				return times_cb()
+			}
+
 			elems.each((i, elem) => {
 				let torrent = {
 					magnet: $(elem).find('a[class=magnet]').attr('href'),
