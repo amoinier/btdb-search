@@ -11,10 +11,15 @@ Based on @theroich/torrentz2
 npm install btdb-search
 ```
 
+### Params
+- page_min: First page to display results,
+- page_max: Last page to display results,
+- sorts: Sort torrent by size/num_files/time/popular,
+
 ### Usage
 ```javascript
 var btdb = require('btdb-search');
-btdb.search('Ubuntu').then(function (data) {
+btdb.search('Ubuntu', {'page_min': 0, 'page_max': 3, sorts: 'popular'}).then(function (data) {
     console.log(data);
 });
 /*
